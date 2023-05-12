@@ -1,0 +1,883 @@
+この演習は for ループを使って解いてください。
+基本演習
+問題 1
+整数を 1 つ引数にとり、1 からその数値まで順番にコンソールに表示する count_up という関数を書いてください。
+count_up(5)
+...とすると以下のように表示されるようにしてください。
+1
+2
+3
+4
+5
+問題 2
+リストを 1 つ引数にとり、for ループを使ってリストの後ろから前に向かって逆順に要素をコンソールに表示する関数 reverse_print を書いてください。
+reverse_print(["Almond Eye", "Efforia", "Equinox"])
+...とすると以下のように表示されるようにしてください。
+Equinox
+Efforia
+Almond Eye
+問題 3
+文字列を 1 つ引数にとり、文字と文字の間にスペースを 1 つはさむようにした新しい文字列を作って返す関数 kerning_loop を書いてください。
+例：
+print(kerning_loop("cat"))
+... とすると c a t という文字列を表示するようにしてください。
+ヒント: 文字列の末尾の余分なスペースは .strip() で削除できます。
+問題 4 （チャレンジ問題）
+2 つのリストを引数にとり、それを合体させた新しい 1 つのリストを返す関数 zip を書いてください。要素の順番はもととなる 2 つのリストから交互に取り込むようにしてください。
+print(zip(["A", "B", "C"], ["1", "2", "3"]))
+...print すると以下のように表示されるようにしてください。
+["A", "1", "B", "2", "C", "3"]
+問題 4
+数字( n ) と文字 1 つを受け取り、その文字を n 個 x n 個コンソールに表示する関数 print_square を書いてください。
+print_square(3, "X")
+...とすると以下のように表示されるようにしてください。
+X X X
+X X X
+X X X
+print_square(4, "$")
+...とすると以下のように表示されるようにしてください。
+$ $ $ $
+$ $ $ $
+$ $ $ $
+$ $ $ $
+問題 5
+While の演習問題を for ループで実装してみましょう！
+中級演習
+問題 1
+テキストファイルにある5,000人以上の名前の中で最もアルファベットの値が高いものを見つける関数 name_score を書いてください 。アルファベットは A から Z まで順に1から26の値を持つものとし、組み込み関数の ord() を使ってください。ASCIIコードについても調べてみましょう。
+応用演習
+問題 1
+以下の条件を満たす関数 collatz sequence を書いてください。
+以下の正の整数のセットに関して以下のようなシーケンスが定義されています。
+n → n/2 (n は偶数) n → 3n + 1 (n は奇数)
+上記のルールを使って13から始めると以下のようなシーケンスができます。
+13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1 13で始まり1で終わるこのシーケンスは10項が含まれています。コラッツの問題として未だ解決されていない「コラッツの問題」ですが、どの数から始めても１になると予想されています。
+100万未満で最も長い連なりを作れるのはどの数字から始めたときでしょうか。
+注：途中では100万を超える項があってもよいこととします。
+問題2
+10×10のグリッドがあるとします。マトリクスを転置して行を列に、列を行にする関数　rotate_matrix を書いてください。
+問題 3
+以下の条件を満たす関数 sudoku_checker を書いてください。
+二次元リストを使用して、以下の完成された二つの数独が正しいか確認しましょう。
+9つの各タテ列に1-9の数字が一つずつあるか確認してください。
+9つの各ヨコ列に1-9の数字が一つずつあるか確認してください。
+9つの3x3の各ブロックに1-9の数字が一つずつあるか確認してください。
+sudoku_1 =[
+    [5, 3, 4, 6, 7, 8, 9, 1, 2],
+    [6, 7, 2, 1, 9, 5, 3, 4, 8],
+    [1, 9, 8, 3, 4, 2, 5, 6, 7],
+    [8, 5, 9, 7, 6, 1, 4, 2, 3],
+    [4, 2, 6, 8, 5, 3, 7, 9, 1],
+    [7, 1, 3, 9, 2, 4, 8, 5, 6],
+    [9, 6, 1, 5, 3, 7, 2, 8, 4],
+    [2, 8, 7, 4, 1, 9, 6, 3, 5],
+    [3, 4, 5, 2, 8, 6, 1, 7, 9],
+]
+
+sudoku_2 =[
+    [1, 2, 3, 6, 7, 8, 9, 1, 5],
+    [5, 8, 4, 2, 3, 9, 7, 6, 1],
+    [9, 6, 2, 1, 4, 5, 3, 2, 8],
+    [3, 7, 2, 4, 6, 1, 5, 8, 9],
+    [6, 9, 1, 5, 8, 3, 2, 7, 4],
+    [4, 5, 8, 7, 9, 5, 6, 1, 3],
+    [8, 3, 6, 9, 2, 4, 1, 5, 7],
+    [2, 7, 9, 8, 5, 7, 4, 3, 6],
+    [7, 4, 5, 2, 1, 6, 8, 9, 2],
+]
+
+sudoku_checker(sudoku_1) # True
+sudoku_checker(sudoku_2) # True
+ナイトメア😈
+問題 1
+二次元リストで表された数独の問題が３つあります。空のマスは 0 で表されています。数独を解く関数 solve_sudoku を書いてください。solve_sudokuは数独の二次元リストを引数にとり、リスト内の0を正しい数字に置換し、全ての置換が終わると True 、それ以外は False を返します。（レクチャーの先取りになりますが、再帰関数についても調べてみることをおすすめします。）
+easy_puzzle = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9],
+]
+
+medium_puzzle = [
+    [0, 2, 0, 6, 0, 8, 0, 0, 0],
+    [5, 8, 0, 0, 0, 9, 7, 0, 0],
+    [0, 0, 0, 0, 4, 0, 0, 0, 0],
+    [3, 7, 0, 0, 0, 0, 5, 0, 0],
+    [6, 0, 0, 0, 0, 0, 0, 0, 4],
+    [0, 0, 8, 0, 0, 0, 0, 1, 3],
+    [0, 0, 0, 0, 2, 0, 0, 0, 0],
+    [0, 0, 9, 8, 0, 0, 0, 3, 6],
+    [0, 0, 0, 3, 0, 6, 0, 9, 0],
+]
+
+hard_puzzle = [
+    [0, 0, 0, 6, 0, 0, 4, 0, 0],
+    [7, 0, 0, 0, 0, 3, 6, 0, 0],
+    [0, 0, 0, 0, 9, 1, 0, 8, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 5, 0, 1, 8, 0, 0, 0, 3],
+    [0, 0, 0, 3, 0, 6, 0, 4, 5],
+    [0, 4, 0, 2, 0, 0, 0, 6, 0],
+    [9, 0, 3, 0, 0, 0, 0, 0, 0],
+    [0, 2, 0, 0, 0, 0, 1, 0, 0],
+]
+
+def show_result(puzzle):
+    if solve_sudoku(puzzle):
+      for row in puzzle:
+          print(row)
+    else:
+      print("No solution exists.")
+    print()
+
+show_result(easy_puzzle)
+show_result(medium_puzzle)
+show_result(hard_puzzle)
+
+# 出力結果例
+# [5, 3, 4, 6, 7, 8, 9, 1, 2]
+# [6, 7, 2, 1, 9, 5, 3, 4, 8]
+# [1, 9, 8, 3, 4, 2, 5, 6, 7]
+# [8, 5, 9, 7, 6, 1, 4, 2, 3]
+# [4, 2, 6, 8, 5, 3, 7, 9, 1]
+# [7, 1, 3, 9, 2, 4, 8, 5, 6]
+# [9, 6, 1, 5, 3, 7, 2, 8, 4]
+# [2, 8, 7, 4, 1, 9, 6, 3, 5]
+# [3, 4, 5, 2, 8, 6, 1, 7, 9]
+
+# [1, 2, 3, 6, 7, 8, 9, 4, 5]
+# [5, 8, 4, 2, 3, 9, 7, 6, 1]
+# [9, 6, 7, 1, 4, 5, 3, 2, 8]
+# [3, 7, 2, 4, 6, 1, 5, 8, 9]
+# [6, 9, 1, 5, 8, 3, 2, 7, 4]
+# [4, 5, 8, 7, 9, 2, 6, 1, 3]
+# [8, 3, 6, 9, 2, 4, 1, 5, 7]
+# [2, 1, 9, 8, 5, 7, 4, 3, 6]
+# [7, 4, 5, 3, 1, 6, 8, 9, 2]
+
+# [5, 8, 1, 6, 7, 2, 4, 3, 9]
+# [7, 9, 2, 8, 4, 3, 6, 5, 1]
+# [3, 6, 4, 5, 9, 1, 7, 8, 2]
+# [4, 3, 8, 9, 5, 7, 2, 1, 6]
+# [2, 5, 6, 1, 8, 4, 9, 7, 3]
+# [1, 7, 9, 3, 2, 6, 8, 4, 5]
+# [8, 4, 5, 2, 1, 9, 3, 6, 7]
+# [9, 1, 3, 7, 6, 8, 5, 2, 4]
+# [6, 2, 7, 4, 3, 5, 1, 9, 8]
+
+
+基礎演習
+問題 1
+文字列を 1 つ引数にとり、出現する文字とその出現回数を記録するディクショナリを返す関数 count_letters を書いてください。
+まず空のディクショナリを作る必要があります。
+counter = { }
+その上で文字列をループ処理しながら、各文字がすでに出てきたかをチェックします。ある文字が初めて出てきた場合はディクショナリにその文字を加え、値を 1 とします。既出の場合はその文字に対する値を 1 つ増やします。
+例：
+count_letters("salamander");
+
+# 以下のような返り値が得られるようにしたい。
+# {"s": 1, "a": 3, "l": 1, "m": 1, "n": 1, "d": 1, "e": 1, "r": 1}
+問題 2
+複数の文字列を含む 1 つのリストを引数にとり、重複する文字列は 1 つだけ残して余分な文字列を取り除いたリストを新しく作って返す関数 remove_repeats を書いてください。
+例：
+print(remove_repeats(["a", "b", "c", "b", "a", "d"])) # ["a", "b", "c", "d"]
+ヒント: in が役に立つかも！
+問題 3
+文字列を 1 つ引数にとり、各母音（a, e, i, o, u）の出現回数をディクショナリに記録する関数 count_vowels を書いてください。
+例：
+count_vowels("digging for apples");
+
+# 以下のような返り値が得られるようにしたい。
+# {"i": 2, "o": 1, "a": 1, "e": 1}
+問題 4
+複数の文字列を含むリストを 1 つ引数にとり、重複する文字列があれば True を、すべて一意の文字列で重複がなければ False を返す関数 is_duplicated を書いてください。
+例：
+class_a = ["John", "Tom", "Alex"]
+class_b = ["John", "Tom", "John"]
+
+print(is_duplicated(class_a)) # False
+print(is_duplicated(class_a)) # True
+応用演習
+問題 1
+同じキーの場合は値を合算しつつ、以下の例のような形で 2 つのディクショナリをまとめたディクショナリを返す関数 merge_dictionaries を書いてください。
+例：
+a = {'a': 100, 'b': 200, 'c':300}
+b = {'a': 300, 'b': 200, 'd':400}
+
+print(merge_dictionaries(a, b)) # {'a': 400, 'b': 400, 'c': 300, 'd': 400}
+問題 2
+ディクショナリの似通ったキー（例えば電話番号など）をまとめる関数 merge_orders を書いてください。
+例：
+orders =  {
+     "070 1234 1234": 200,
+     "07012341234": 500,
+     "070-1234-1234": 100,
+     "(070) 1234-1234": 500
+     "+81 (70) 1234-1234": 500
+}
+
+merged_orders = merge_orders(orders)
+print(merged_orders)  # {"07012341234": 1800}
+問題 3
+データセットを使い、男性と女性、それぞれの平均身長を求める関数を書いてください。また、このデータセットの中で150センチより背の高い男性は何人いますか。
+例：
+age = average_age(people)
+height = average_height(people)
+weight = average_weight(people)
+
+print(age)
+print(height)
+print(weight)
+問題 4
+アメリカの成績評価に使われるGPAに関する問題です。ある生徒の成績があり、それをもとにGPAを計算する関数　grades　を書いてください。計算に使う数字は以下に示したものを使ってください。なお、各科目で点数によりレターグレード（A, B, Cなど）が決まり、レターグレードによってグレードポイント（１，２，３，４）が決まります。GPAはグレードポイントの合計÷科目数で求められます。
+例：
+grades = {
+    'Physics': 82,
+    'Math': 65,
+    'History': 75
+}
+
+grade_table = {
+    'A': 89.5,
+    'B': 79.5,
+    'C': 69.5,
+    'D': 59.5,
+}
+
+gpa_table = {
+    'A': 4,
+    'B': 3,
+    'C': 2,
+    'D': 1,
+}
+科目において特に成績優秀だった場合（H）とその科目が大学レベルのカリキュラムだった場合（AP）には、その科目のグレードポイントに1点の加点がつきます。こちらの生徒のGPAを計算してください。
+例：
+grades = {
+  'H Physics': 82,
+  'Math': 65,
+  'AP History': 75
+}
+
+問題 1
+ユーザーに好物を聞いてそれを favorite_food という変数に入れるコードを書いてください。 favorite_food を print して入力された好物が入っていることを確認してください。
+問題 2
+ユーザーに数値を入れるよう促して、それが半径の円の大きさを返す関数を書いてください。
+問題 3
+ユーザーに昨年見た映画の本数を聞いてそれを movies という変数に入れ、メッセージを返す関数を書いてください。 例えば 3 という入力があった場合は "I saw 3 movies last year." というメッセージが変えるようにしてください。 0 や 1 のときは単数、2 本以上は複数形になる対応が必要です。
+問題 4
+好物を聞いてそれを リスト に入れて返す関数を書いてください。 ユーザーには5回インプットを促し、リストに５つ好物が入るようにしてください。
+問題 5
+注：この問題はまだ習っていないデータ型（ディクショナリ）を使って解く問題です。自分で調べて書く練習のため余裕があればぜひトライしてください。
+ユーザーが簡単な辞書を作れるような関数を書いてください。 ユーザーに英単語を入力するよう促し、辞書に登録がなければ日本語訳を入力するよう促してそれを訳として登録します。 辞書にすでに登録がある場合は日本語訳を表示します。
+問題 6
+その他、input関数を使って自由にコードを書いてみてください！
+
+ウォームアップ
+問題１ 以下のコードを見てください。どうすれば films の 3 つめの要素を print できますか。??? を編集しましょう。
+films = ["Dracula", "Frankenstein", "The Mummy", "Babe"]
+
+print(???) # "The Mummy" と表示させたい
+問題2 days というリストは不完全です。残りの曜日をリストの末尾に足すにはどうすればよいですか？
+days = ["Monday", "Tuesday", "Wednesday", "Thursday"]
+
+# ここにコードを書いてください。
+
+print(days) # これですべての曜日が表示されるようにしたい
+問題3 3 つの文字列を持つ moon というリスト があります。一番最後の要素を削除する方法は？
+moons = ["Deimos", "Phobos", "Howard"]
+
+# ここにコードを書いてください。
+
+print(moons) # これで ["Deimos", "Phobos"] と表示させたい
+基礎演習
+以下の演習から、テスト関数を使用して実行しましょう。ファイルの冒頭に追加して使用してください。
+def test(actual, expected):
+    if actual == expected:
+        print("Yay! Test PASSED.")
+    else:
+        print("Test FAILED. Keep trying!")
+        print("    actual: ", actual)
+        print("  expected: ", expected)
+問題１ 関数 print_list を宣言してください。引数に 1 つのリストをとり、リストの各要素を 1 行に 1 つずつ表示してください。
+テストケース:
+print_list([1, 2])
+# 1
+# 2
+
+print_list([3, 4, 5])
+# 3
+# 4
+# 5
+問題2 print_every_other_list を宣言してください。引数に 1 つのリストをとり、まずリストの最初の要素、次は 3 つめというふうに 1 つおきの要素を表示させてください。
+テストケース:
+print_every_other_list([1, 2, 3])
+# 1
+# 3
+
+print_every_other_list([3, 4, 5, 6, 7])
+# 3
+# 5
+# 7
+問題3 関数 sum_list を宣言してください。引数に渡されたリストを全て足した値を返してください。
+テストケース:
+test(sum_list([1, 2, 3, 4]), 10)
+test(sum_list([5, 6, 7, 8]), 26)
+問題4 関数 multiply_list を宣言してください。引数に渡されたリストを全て掛け合わせた値を返してください。
+テストケース:
+test(multiply_list([1, 2, 3, 4]), 24)
+test(multiply_list([5, 6, 7, 8]), 1680)
+問題5 関数 has_fun を宣言してください。渡されたリストに fun が入っていたら True を返してください。
+テストケース:
+test(has_fun(["whatever", 2, False, "fun", "hello"]), True)
+test(has_fun(["whatever", 2, False, "run", "hello"]), False)
+問題6 関数 contains_only_booleans を宣言してください。与えられたリストの要素がすべてブーリアンかどうかを表すブーリアンを返してください。
+テストケース:
+test(contains_only_booleans([True, False, True, False, False]), True)
+test(contains_only_booleans([True, True, True, "not a boolean"]), False)
+問題7 関数 concatenate を宣言してください。与えられた2つのリストを連結させたリストを返してください。実装には while を使ってください。
+テストケース:
+test(concatenate(["a", "b"], ["c", "d"]), ["a", "b", "c", "d"])
+test(concatenate(["hello", "world"], ["python", "list"]), ["hello", "world", "python", "list"])
+問題8 関数 get_even_numbers を宣言してください。与えられたリストの中から偶数の要素だけを抜き出したリストを返してください。
+テストケース:
+test(get_even_numbers([1, 2, 3, 4, 5, 6, 7, 8]), [2, 4, 6, 8])
+test(get_even_numbers([10, 11, 12, 13, 14, 15, 16, 17]), [10, 12, 14, 16])
+問題9 関数 get_multiplied_list を宣言してください。与えられたリストの値に第二引数の数値をかけた結果の新しいリストを返してください。
+テストケース:
+test(get_multiplied_list([1, 2, 3], 6), [6, 12, 18])
+test(get_multiplied_list([4, 5, 6], 2), [8, 10, 12])
+問題10 最後の要素を表示する文を書いてください。特定のインデックスをハードコーディングしてはいけません。
+ハードコーディングとは例えばこういう書き方です。3 という数字を直接指定していますが、これでは index が 3 の要素しか取得できないので、リストの長さが変わってしまうと期待する結果になりません。
+instructors = ["Mike", "Paul", "Bob", "Tom"]
+print(instructors[3]) # Tom
+今回はハードコーディングではなく、以下のようなコードを考えてください。
+print(''' どんな場合もリストの最後の要素が得られる式 ''')
+問題11 ターミナルには、なんと表示されるでしょう。
+numbers = [1, 2, 3]
+
+print(numbers[2]) # ???
+print(numbers[0]) # ???
+print(numbers[len(numbers) - 1]) # ???
+
+# 次で使用しているメソッドやプロパティについて、分からないときはドキュメントで調べてみましょう！
+
+print(numbers.pop() + numbers.pop()) # ???
+
+numbers[:0] = [4, 5, 6]
+print(numbers) # ???
+
+print(numbers.pop(0)) # ???
+
+print(len(numbers)) # ???
+
+numbers.append(5)
+numbers.append(6)
+
+print(numbers.pop() * numbers.pop()) # ???
+print(numbers[0]) # ???
+問題12 リストはリストを要素として持つことができます。後日じっくり触れますが、いったんこの「リストの入れ子」に挑戦してみましょう。
+次のコードはターミナルに何を表示させるでしょう。
+numbers = [
+  [0, 1, 2, 3],
+  ["zero", "one", "two", "three"],
+  ["rei", "ichi", "ni", "san"],
+]
+
+print(numbers[2]) # ???
+print(numbers[1][1]) # ???
+print(numbers[0][2]) # ???
+print(numbers[len(numbers)-1][0]) # ???
+print(len(numbers[2])) # ???
+print(numbers.pop()) # ???
+print(numbers[0].append(4)) # ???
+print(len(numbers)) # ???
+問題１3 文字列はリストととてもよく似た挙動をします。次のコードがターミナルに何と表示させるでしょうか。
+string = "hello"
+print(len(string)) # ???
+print(string[0]) # ???
+print(string[3]) # ???
+print(string[len(string) - 1]) # ???
+問題１4 関数 last を宣言してください。リストの最後の要素を返しましょう。
+test(["Mike" ,"Paul", "Tom", "Bob"], "Bob")
+問題１5 ビルトインの append メソッドの代わりになる関数 append 関数を作ってみましょう！ビルトインの append メソッドを使ってはいけません。関数の第２引数にリストに追加する値を渡し、処理後のリストの長さを返しましょう。
+test(append([1, 2, 3, 4], 5), 5)
+# さらにテストを追加してみましょう。
+問題１6 関数 number_of_people を宣言してください。リストの要素数を返してください。
+テストケース:
+test(number_of_people(["Mike" ,"Paul", "Tom", "Bob"]), 4)
+中級演習
+問題１ 関数 is_sorted を宣言してください。与えられたリストが昇順に並んでいるかを表すブーリアンを返してください。
+テストケース:
+test(is_sorted([1, 2, 3]), True)
+test(is_sorted([3, 2, 3]), False)
+問題2 関数 count_occurrences を宣言してください。第一引数のリストの要素に第二引数の値が出現する回数を出力してください。
+テストケース:
+test(count_occurrences([1, 2, 3], 2), 1)
+test(count_occurrences([1, 2, 2], 2), 2)
+test(count_occurrences([1, 2, "elephant"], "elephant"), 1)
+問題3 関数 reverse を宣言してください。ビルトイン・メソッドの reverse は使わないでください。与えられたリストの要素が逆の順番に入っているリストを作成してください。
+テストケース:
+list_to_reverse = ["eeny", "meeny", "miny", "moe"]
+test(reverse(list_to_reverse), ["moe", "miny", "meeny", "eeny"])
+test(list_to_reverse, ["eeny", "meeny", "miny", "moe"])
+問題4 関数 get_operated_list を宣言してください。与えられたリストの各要素に、引数の算術演算子と被演算子を適用した結果が入った新たなリストを作成してください。
+テストケース:
+test(get_operated_list([1, 2, 3], "+", 5), [6, 7, 8])
+test(get_operated_list([9, 6, 3], "/", 3), [3, 2, 1])
+問題5 関数 unshift を宣言してください。与えらえた値を与えらえたリストの先頭に追加する関数です。与えられたリストに第二引数の要素を追加してください。返り値は処理が終わった後のリストの長さを返してください。ビルトインのinsert()メソッドを使わないでください。
+テストケース:
+my_list = [1, 2, 3, 4]
+
+test(unshift(my_list, 5), 5) # 正しい結果を返すことを確認する
+test(my_list, [5, 1, 2, 3, 4]) # 元のリストが変更されていることを確認する
+問題6 関数 shift を宣言してください。shift は与えられた リスト の先頭の値を削除し、削除された値を返します。 ビルトインの pop メソッドを使わないでください。
+テストコード：
+my_list = [1, 2, 3, 4]
+
+actual = shift(my_list)
+expected = 1
+test(actual, expected)
+
+actual = my_list
+expected = [2, 3, 4]
+test(actual, expected) # 元のリストが変更されていることを確認する
+応用演習
+この演習では、講義で取り上げたことのないテクニックを使う必要があるかもしれません。
+問題１ 関数 hi_in_the_middle を宣言してください。
+まず初めに、引数として受け取ったリストの要素数が奇数かどうかを確認します。リストの長さが奇数なら、真ん中の要素が何であろうと "hi" に置換し、リストの長さが偶数なら、何も変更せず、リストを返してください。
+test(hi_in_the_middle([1, 2, 3, 4, 5], [1, 2, "hi", 4, 5]))
+test(hi_in_the_middle([1, 2, 3, 4]), [1, 2, 3, 4])
+問題2 関数 call_a_doctor を宣言してください。単数形と複数形では名詞と動詞の関係が変化することに注意してください。例えば My head hurts! は動詞に s が必要ですが、 My shoulders hurt! には必要ありません。
+テストケース:
+test(call_a_doctor(["head"]), "Doctor, doctor! My head hurts!")
+test(call_a_doctor(["shoulders"]), "Doctor, doctor! My shoulders hurt!")
+test(call_a_doctor(["head", "shoulders", "knees", "toes"]), "Doctor, doctor! My head, shoulders, knees, and toes hurt!")
+問題3 関数 deep_count を宣言してください。
+テストケース:
+test(deep_count([1]), 1)
+test(deep_count([1, 3]), 2)
+test(deep_count([1, 3, [2, 4]]), 4)
+test(deep_count(["a", "b", ["c", ["d", "e", ["f"]]]]), 6)
+問題4 len を使わないで、関数 number_of_people を書き直してください。
+問題5 2 つのリストが互いに逆順かどうかをチェックする関数 are_reverses を宣言してください。are_reverseは引数に二つのリストを取り、2 つのリストが互いに逆順かどうかを示すブール値を返します。これを機に、リストは、どのようなビルトイン・メソッドが利用できるのか調べてみましょう。この問題を解くのにぴったりなメソッドが見つかるかもしれませんよ😉
+テストコード：
+ list_1 = [1, 2, 3, 4]
+ list_2 = [4, 3, 2, 1]
+
+ actual = are_reverses(list_1, list_2)
+ expected = True
+
+ test(actual, expected)
+
+ actual = list_1
+ expected = [1, 2, 3, 4]
+
+ # 元のリストが変更されていないことを確認する
+ test(actual, expected)
+問題6 与えられた関数を、リストの各要素に対して一度ずつ実行する関数for_eachを宣言してください。
+テストコード：
+for_each([1, 2, 3, 4], print)
+# 1
+# 2
+# 3
+# 4
+問題7 for_each を使用して、リストの各要素に 2 を掛けた数値を表示してください。
+ナイトメア問題 😈
+問題１ 関数 flatten_deep を宣言してください。リストのリスト（何段階も入れ子になっている場合もある）を引数として受け取り、平坦化された、つまり、入れ子のないリスト（＝一次元リスト）を返しましょう。
+テストケース:
+test(flatten_deep([1, 2, 3, [4, 5, 6]]), [1, 2, 3, 4, 5, 6])
+test(flatten_deep([[1, 2, 3],[4, 5, 6],]), [1, 2, 3, 4, 5, 6])
+test(flatten_deep([[1], [2], [3], [4, 5, 6]]), [1, 2, 3, 4, 5, 6])
+test(flatten_deep([[1], [2], [3], [4, 5, 6]]), [1, 2, 3, 4, 5, 6])
+問題2 関数 sort を宣言してください。数字のリストを引数に取り、与えられたリストの要素を昇順に並べた新しいリストを返す関数です。ビルトインの sort メソッドを使ってはいけません。
+テストケース：
+list_to_sort = [5, 4, 3, 2, 1]
+actual = sort(list_to_sort)
+expected = [1, 2, 3, 4, 5]
+
+test(actual, expected) # 正しい結果を返すことを確認する
+test(list_to_sort, [5, 4, 3, 2, 1]) # 元のリストが変更されていないことを確認する
+
+
+
+基礎演習
+文字列を 1 つ引数にとる concierge という関数を書いてください。渡された文字列があなたの名前なら "Hello!" と返し、もしあなたの名前でないなら、"Sorry, I don't know you." と返すようにしてください。
+def concierge():
+  # your code here
+テストケース:
+print(concierge("hello")) # "Sorry, I don't know you."
+print(concierge("John")) # "Hello!"
+英語でうるう年のことを leap year と言います。そこでうるう年かどうかを調べる関数 is_leap_year を作りましょう。この関数は year （整数値）を引数にとり、その年がうるう年なら True を返し、そうでなければ False を返すようにします。
+うるう年の判断方法：
+4 で割り切れる年はうるう年です。
+100 で割り切れる年は平年です。
+でも、400 で割り切れる年はうるう年です。
+
+以下の数値を使って実際にコードを確かめてみましょう。
+うるう年: 1600, 1924, 1980, 2024
+平年: 1500, 1700, 1981, 2077
+def is_leap_year(year):
+  # your code here
+テストケース:
+print(is_leap_year(1924)) # True
+print(is_leap_year(1700)) # False
+数値が与えられたレンジに含まれるかを調べる関数 range を書いてください。 数値が最小値以上で最大値以下の場合はコンソールに "In range" と表示させ、最小値未満ないしは最大値を超える場合は "Out of range" と表示させてください。
+def range(low, high, target):
+  # your code here
+テストケース:
+print(range(1, 10, 5)) # In range
+print(range(1, 10, 20)) # Out of range
+次のコードには誤りがあります。正しく動作するように修正してください。（”password” という簡単はパスワードは弾きましょう）
+def simple_password_lock(password):
+  if password === password:
+    return "Correct! Welcome."
+    return "This is simple password, please try again."
+テストケース:
+print(simple_password_lock("qwerty")) # "Correct! Welcome."
+print(simple_password_lock("password")) # "This is simple password, please try again."
+len を覚えていますか？　len メソッドを使うと、文字列の長さを手っ取り早く知ることができます。
+以下のコードは何を表示するでしょうか？　コードを実行して確かめてみましょう！
+print(len("Hello"))
+print(len("The length of this string is 31"))
+print(len(" spaces! "))
+is_it_too_long という名前の関数を宣言しましょう。この関数は文字列の引数を 1 つ取ります。
+上記で習った len を使いましょう。引数の文字列の長さが 10 より長かったら True を返し、10 以下であれば False を返すように実装してください。
+print(is_it_too_long("Hello World. Is this long enough?")) # True
+print(is_it_too_long("Hello")) # False
+どちらの数が大きいかを表示する関数を宣言します。テストケースを見て、要件を満たすような関数を作ってください。
+def bigger_number(num_one, num_two):
+  # your code here
+テストケース:
+print(bigger_number(4, 3)) # "The first argument is bigger."
+print(bigger_number(3, 4)) # "The second argument is bigger."
+ボーナス問題： 2 つの数字が同じだったら関数はどうすればいいと思いますか？ その場合のテストケースも書き加えて、自分のコードを編集してみましょう。
+print_data_type という名前の関数を宣言してください。この関数は引数を 1 つ取り、引数のデータ型を返します。type を使って解きましょう。
+type についての詳細はリンクを確認しましょう。 int に対しての処理だけは例としてすでに作ってあります。テストケースを見て、print_data_type がどのように動けばよいのか確認しながら解きましょう。
+def print_data_type(data):
+ if type(data) == int:
+     return "This is a integer."
+ # More code here
+テストケース：
+print(print_data_type(42)) # "This is a integer."
+print(print_data_type("Hello!")) # "This is a string."
+print(print_data_type(True)) # "This is a boolean."
+print(print_data_type(None)) # "This is not a integer, string, or boolean."
+greeting という関数を作りましょう。この関数は名前と言語を表す 2 つの引数を取ります。指定された人に対して、指定された言語で挨拶を返す関数にしてください。
+テストケース:
+print(greeting("Harry Potter", "Japanese")) # "Konnichiwa, Harry Potter!"
+print(greeting("Harry Potter", "English")) # "Hello, Harry Potter!"
+print(greeting("Harry Potter", "German")) # "Gutentag, Harry Potter!"
+print(greeting("Harry Potter", "Spanish")) # "Hola, Harry Potter!"
+is_even という関数を作りましょう。与えられた数字が偶数のときに True を返します。 ヒント： remainder operator（剰余を求める演算子） (%)を使いましょう。
+def is_even():
+  # your code here
+テストケース:
+print(is_even(4)) # True
+print(is_even(7)) # False
+ボーナス問題： 引数が整数ではないときに "This is not a integer." と返すよう条件分岐を付け加えましょう。
+中級演習
+これまで同様、次の関数を作りましょう。どの関数も、数値型のデータを 1 つ引数として取るようにしてください。
+is_odd: 引数が奇数だったら True を返します。
+is_positive: 引数が正の数だったら True を返し、正の数でなければ False を返します。
+is_negative: 引数が負の数だったら True を返し、負の数でなければ False を返します。
+is_zero: 引数がゼロだったら True を返し、ゼロでなければ False を返します。
+応用演習
+ここでの演習は、講義で説明されたことのないテクニックを使用する必要があるかもしれません。どんどん自分で調べましょう。
+random_number: この関数は数値型のデータ number を引数として取り、0 以上 number（引数の数字） 未満の間のランダムな値を返します。
+guess_my_number: この関数は数値型のデータ number を引数として取り、引数で与えられた数字と 0 以上 5 以下の間のランダムな整数を比較します。比較した結果一致すれば "YES!" を、一致しなければ "NO!" を返します。
+random_stoplight という名前の関数を宣言し、0 以上 10 以下のランダムな整数を生成します。生成した数字が 3 未満であれば "🔴Red" を返し、3 以上 6 以下であれば "🟡Yellow" を返し、6 より大きければ "🟢Green"を返すようにしてください。
+ヒント： ビルトイン（Python にあらかじめ組み込まれている、という意味）の math モジュール (後日学びます) は、数学に利用できるさまざまなプロパティ (properties) とメソッド (methods) (メソッドは関数の一種です。プロパティやメソッドについても後ほど詳しく！) をたくさん持っています。math.random, math.floor や math.ceil について Python 標準ライブラリ を確認しましょう。どのように動くのかチェックしてください。import についても調べましょう！
+
+
+問題 1
+下のコードを見て表示されるブール値を予想してみましょう。予想したら実際に print で試してみましょう。どのような結果になりましたか？
+"True" == True
+3 >= 3
+4 != 4.0
+1 == True
+予想はあっていましたか？ 外れていたら、なぜそのように表示されるのか理解できましたか？
+問題 2
+下記の、それぞれのコードの ??? を何かに置き換えて、右側にある結果が得られるようにしてください。
+print(1100 ??? 99) # => True
+
+print(1 ??? 21) # => False
+
+print(62 != ???) # => True
+
+print("5" ??? 5) # => False
+
+print("6" ??? "six") # => True
+問題 3
+次の式の算術演算子の 1 つを変更して、結果が True になるようにしましょう。演算子の優先順位を正しく理解しているか確認しましょう。
+print(2 + 3 * 10 > 50)
+問題 4
+日本では20歳以上であればお酒を飲むことができます。引数に age という数値型の値を取る is_old_enough という関数を書きましょう。
+is_old_enough は、ブール値を返し、お酒を飲むのに十分な年齢が入力された場合、True を返すようにします。
+問題 5
+椅子の座り心地を示す assess_chairという関数を作りましょう。この関数は too_soft と too_hard という 2 つのブール値を引数に取ります。ブール値は椅子が柔らかすぎると too_soft の値は True、椅子が硬すぎる場合は too_hard の値は True です。
+この関数は引数に基づいて以下の文字列のいずれかを返すようにします：
+この椅子はちょうどよい座り心地です - too_soft と too_hard の両方がFalse のとき。
+この椅子は硬すぎます - too_hard だけが True のとき。
+この椅子は柔らかすぎます - too_soft だけが True のとき。
+文句言いたいだけでしょ！ - too_soft と too_hard の両方が True のとき。
+問題 6
+Pythonには type() という関数があります。 この関数を使うと、引数として渡されたデータの型を確認することができます。 例えば、Pythonのコンソールに type(4) と入力すると、<class 'int'> と出力されます。
+value という変数を作り、何らかの値を設定してください。
+print を使って value のデータ型を示すコードを書きましょう。
+具体的には次の 4 つの文のいずれかが表示されるようにします。
+This is a number
+This is a boolean
+This is a string
+This is something else
+最後の This is something else を表示させるには、下のように None という値を使ってください。
+check_type(None) # "This is something else"
+問題 7
+language という変数を宣言し、"english"、"japanese"、"spanish " という文字列のいずれかに設定します。
+print() を使って、language の値に応じて "Hello, Kitty"、"こんにちはネコちゃん"、あるいは "Hola, Gato" という文字列を表示するコードを書いてください。他に知っている言語があれば追加してもいいですよ！
+問題 8 （難易度　★★）
+アメリカでは...
+車を運転するには（多くの州で）15歳以上でなければいけません。
+投票をするには18歳以上でなければいけません。
+レンタカーを利用するには25歳以上でなければいけません。
+大統領選に出馬するは35歳以上でなければいけません。
+age という数値を年齢として受け取り、 american_activitiesという関数を作ってください。この関数は上の 4 つの活動からその年齢でできるものを列挙した文字列を返します。
+例：
+american_activities(17) は "車の運転ができます" を返すようにします。
+american_activities(43) は "車の運転、投票、レンタカーの利用、しかも大統領選出馬ができます。" を返すようにします。
+最初から複数の「文章」を用意してそこから 1 つを選んで返すのではなく、引数をもとに適切な文字列を + 演算子で結合してメッセージを作るようにしましょう！
+問題 9 （難易度　★★★）
+ある交差点の信号は昼間は緑が 20 秒、黄色が 5 秒、赤が 40 秒のサイクルで点灯するよう設定されています。
+しかし夜間は赤が 1 秒間点灯、1秒間消灯のリズムでずっと赤信号の点滅が続きます。
+夜間モードは夜 10 時から朝 5 時までで、夜間モードが終了すると緑から昼間モードが始まります。
+真夜中からの経過時間（秒単位）を引数にとり、信号がそのとき何色なのかを "red"、"yellow"、"green"、または "off" という文字列で返す関数 get_color を書いてください。
+
+
+基礎演習
+以下の問題を while ループを使って解いてください。
+関数 count_word を宣言してください。引数に渡された文字列の長さを表示されてください。
+テストケース:
+count_word("hello") # 5
+count_word("world") # 5
+関数 underline を宣言してください。文字列をアンダーライン付きで表示させてください。アンダーラインの長さは文字列と同じにします。
+テストケース:
+underline("Chapter 4: While Loops")
+# Chapter 4: While Loops
+# ----------------------
+関数 consonant を宣言してください。あなたの出身地をアルファベットで記したときの最初の2つの子音を返してください。
+テストケース:
+consonant("Minneapolis") # Mn
+関数 calculate_from_age を宣言してください。1から自分の年齢までのすべての数字の合計を計算する。
+テストケース:
+calculate_from_age(42) # 903
+関数 say_hello を宣言してください。引数に数字 n 分ループさせて Hello! を表示させましょう。
+テストケース:
+say_hello(4)
+# "Hello!"
+# "Hello!"
+# "Hello!"
+# "Hello!"
+関数 count_up を宣言してください。0 から 10 までの数字を毎行 1 増えていくように表示させてください。
+テストケース:
+count_up()
+# 0
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# 10
+関数 count_down を宣言してください。start の数値をを引数にとり、start から 0 までの数値をカウントダウンさせて表示しましょう。
+テストケース:
+count_down()
+# 10
+# 9
+# 8
+# 7
+# 6
+# 5
+# 4
+# 3
+# 2
+# 1
+# 0
+関数 print_string を宣言してください。文字列を 1 つ引数にとり、そのすべての文字を 1 つずつ出力させてください。
+テストケース:
+print_string("apple")
+# a
+# p
+# p
+# l
+# e
+関数 add_one を宣言してください。与えられた文字列にそれぞれ 1 を足した文字列を返す。
+テストケース:
+add_one("12345") # "23456"
+応用演習
+関数 create_range_by_steps を宣言してください。第一引数から第二引数までの数を、第三引数分のステップで print してください。
+テストケース:
+   create_range_by_steps(1, 10, 2)
+   # 1
+   # 3
+   # 5
+   # 7
+   # 9
+
+   create_range_by_steps(10, 30, 5)
+   # 10
+   # 15
+   # 20
+   # 25
+   # 30
+関数 unique を宣言してください。引数として文字列を 1 つとり、重複していない文字のみを返してください。
+テストケース:
+unique("hello") # heo
+unique("world") # world
+関数 zip を宣言してください。不特定の数の文字列を引数として取り、各文字列が全部入った文字列を返してください。
+テストケース:
+zip("hello", "world") # "hello world"
+zip("a", "b", "c", "d") # "a b c d"
+ナイトメア問題 😈
+関数 sum を宣言してください。不特定の数の引数を取り、すべての引数の合計を返してください。
+テストケース:
+sum(1) # 1
+sum(1, 1, 1, 1, 1) # 5
+sum(1, 2, 3, 4, 5) # 15
+関数 sleep を宣言してください。1秒ごとに "n 秒が経過しました" と第一引数に渡された数字分表示させてください。
+テストケース:
+   sleep(1)
+   # 1秒が経過しました
+
+   sleep(3)
+   # 1秒が経過しました
+   # 2秒が経過しました
+   # 3秒が経過しました
+パーティに n 人のゲストが来ています。各ゲストには番号が割り当てられます。到着したすべてのゲストに新しいゲストを紹介する関数、 get_introductions を宣言してください。
+テストケース:
+get_introduction(1)
+# "welcome 1"
+
+get_introduction(2)
+# "welcome 1"
+# "welcome 2, meet 1"
+
+
+get_introduction(5)
+# "welcome 1"
+# "welcome 2, meet 1"
+# "welcome 3, meet 1 and 2"
+# "welcome 4, meet 1, 2 and 3"
+# "welcome 5, meet 1, 2, 3 and 4"
+クリスマスツリーを表示する関数 christmas_tree を宣言してください。
+テストケース:
+   christmas_tree("T", 1)
+   # "T"
+
+   christmas_tree("+", 2)
+   #  +
+   # + +
+
+   christmas_tree("#", 4)
+   #    #
+   #   # #
+   #  # # #
+   # # # # #
+# \n は改行を意味するコードです。実際に文字列を print すると、ツリーがこんな風に表示されますよ。
+    T
+   T T
+  T T T
+ T T T T
+T T T T T
+
+
+基礎問題
+問題 1
+人の名前を引数にとり、以下のような挨拶を表示する greet という関数を作成してください。
+def greet():
+   #ここにコードを書いてください
+
+greet("Judi")  # "Hi, Judi!"
+問題 2
+人の名前を引数にとり、以下のようなメッセージを表示する get_first_alphabet という関数を作成してください。
+def get_first_alphabet():
+   #ここにコードを書いてください
+
+get_first_alphabet("Jean") # "My name starts with j."
+問題 3
+add という名前の関数を宣言しましょう。 ２つの数値型のデータを引数に取り、それらの合計を出力します。
+def add():
+   #ここにコードを書いてください
+
+print(add(4, 3)) # 7
+print(add(100, 43)) # 143
+上記の関数に 1 つだけ値を渡すと何が起こるでしょうか？もっとたくさんの値を渡したら何が起こるでしょうか？
+print(add(100)) # 何が起こる？
+print(add(1, 4, 5)) # 何が起こる？
+問題 4
+subtract という名前の関数を宣言しましょう。 この関数は第一引数から第二引数を引き算する関数です。
+def subtract(num1, num2):
+   #ここにコードを書いてください
+
+print(subtract(4, 3)) # 1
+print(subtract(100, 42)) # 58
+問題 5
+average という名前の関数を宣言しましょう。 ２つの数値型のデータを引数に取り、それらの数値の平均を出力します。
+def average():
+   #ここにコードを書いてください
+問題 6
+greeting という名前の関数を宣言しましょう。 文字列型（string） のデータを引数に渡し、右側にある挨拶文を表示してください。
+def greeting():
+   #ここにコードを書いてください
+print(greeting("Alex")) # Hello, Alex!
+print(greeting("Beau")) # Hello, Beau!
+問題 7
+次の関数には誤りがあります。何が間違っているのでしょうか。
+def square(5):
+    return 5 * 5
+
+def square("x"):
+    return "x" * "x"
+一方こちらは問題なく動きます。さらに良い書き方はないでしょうか？
+def Square(monkey):
+    return monkey * monkey
+問題 8
+cubeという名前の関数を宣言しましょう。引数 'x' の 3 乗を出力してください。
+def cube():
+    #ここにコードを書いてください
+問題 9
+摂氏の温度を華氏に変換する関数を書いてください。
+def to_fahrenheit():
+    #ここにコードを書いてください
+問題 10
+本体価格を表す浮動小数点数と税率を表す浮動小数点数を引数にとり、税込みの合計金額を返す関数 apply_tax を作成してください。
+例：
+apply_tax(300, 0.1) # 330（300円の本体価格で税率 10 ％のときの合計金額として）
+問題 11
+整数を引数に取る asterisk_creator という名前の関数を書いてください。この関数はアスタリスク（＊）が与えられた整数値の数だけ連なっている文字列を返すようにします。例えば、print(asterisk_creator(5)) とすると ***** と表示されるようにしてください.
+def asterisk_creator():
+    #ここにコードを書いてください
+中級問題
+問題 12
+次のコードを実行したら何が表示されますか？なぜそうなるのでしょうか？
+def simpleHelloA():
+    print("hello")
+
+def simpleHelloB():
+    return "hello"
+
+
+a = simpleHelloA()
+b = simpleHelloB()
+print(a, b)
+問題 13
+まだ習っていない構文を使います。調べてながら進めてみましょう！
+2 つの値を引数にとり、両者が等しければ True、等しくなければ False を返す関数 is_equal を作成してください。
+def is_equal():
+    #ここにコードを書いてください
